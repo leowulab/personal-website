@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Next.js 16: the params warning on a dynamic route",
+  description:
+    "A dev error about `params` outside Suspense while building this site, what it means, and the fix I chose.",
+  date: "2026-10-24",
+  tags: ["Next.js", "Debugging"],
+};
+
+## Context
+
+While building this portfolio with Next.js 16, I added a dynamic route for project pages, `/projects/[slug]`. The page read `params` at the top of the component with `await params`, which is the documented way to do it in recent versions.
+
+## The problem
+
+The page rendered fine and returned 200, but the dev server showed an error saying that the route accessed URL data during prerendering or navigation, and that `params` or `searchParams` should be accessed inside `<Suspense>`.
+
+The first version of my question was incomplete: I had only copied the code excerpt, not the message at the top of the error. The full message is what made the cause clear.
+
+## What it means
+
+Next.js now checks whether a route can have an instant shell, a part of the page that does not depend on the URL and can be shared across navigations. When the whole page waits for `params` at the top level, everything is tied to one specific URL, so there is nothing to share.
+
+## The two options
+
+The error message offers two ways out:
+
+- Wrap the part that reads URL data in `<Suspense>` with a fallback.
+- Export `instant = false` from the page to allow a blocking route.
+
+## What I chose
+
+For a small portfolio with a few static project pages, I went with the second option for now:
+
+    export const instant = false;
+
+Wrapping the entire page content in `<Suspense>` would silence the warning, but it would not give the page a meaningful instant shell, so it felt like changing the code only to satisfy the check. If a page has real static parts, such as a header or a back link, it makes sense to keep those outside the Suspense boundary and put only the URL-dependent content inside.
+
+## Takeaways
+
+- Always copy the full error message, not only the code frame.
+- `await params` is still correct, the warning is about page structure, not about the call itself.
+- Pick the fix that matches the page: block when the content is tiny and static, split with Suspense when there is a real shell to protect.
