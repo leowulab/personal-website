@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/data/projects";
 
-const focusAreas = ["AI Engineering", "AIoT", "Full-stack with AI"];
+const focusAreas = ["AI Engineering", "AIoT & Edge", "Computer Vision"];
 
 export default function Home() {
   return (
@@ -10,12 +10,13 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-8">
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-          I build AI-powered products that connect software, devices, and
+          I build apps and AI systems that connect software, devices, and
           people.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
-          Engineer with 6 years of app development experience and an MSc in AI.
-          I write about what I build and what breaks along the way.
+          Engineer with six years of Unity mobile app development, three apps
+          published on iOS and Android, and an MSc in AI. I write about what I
+          build and what breaks along the way.
         </p>
 
         <ul className="mt-6 flex flex-wrap gap-2">

@@ -50,24 +50,46 @@ export default function AboutPage() {
       </section>
 
       {/* Experience */}
-      <section>
-        <SectionTitle>Experience</SectionTitle>
-        <Timeline>
-          {experience.map((item) => (
-            <li key={`${item.company}-${item.period}`} className="relative">
-              <TimelineDot />
-              <p className="text-sm text-muted">{item.period}</p>
-              <h3 className="mt-1 text-lg font-semibold">{item.role}</h3>
-              <p className="text-muted">{item.company}</p>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
-                {item.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </Timeline>
-      </section>
+<section>
+  <SectionTitle>Experience</SectionTitle>
+  <Timeline>
+    {experience.map((item) => (
+      <li key={`${item.company}-${item.period}`} className="relative">
+        <TimelineDot />
+        <p className="text-sm text-muted">{item.period}</p>
+        <h3 className="mt-1 text-lg font-semibold">{item.role}</h3>
+        <p className="text-muted">{item.company}</p>
+
+        {item.projects.map((project) => (
+          <div key={project.name} className="mt-6">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+              <h4 className="font-medium">
+                {project.name}
+                <span className="font-normal text-muted">
+                  {" "}· {project.role}
+                </span>
+              </h4>
+              <span className="text-sm text-muted">{project.period}</span>
+            </div>
+            <ul className="mt-2 list-disc space-y-2 pl-5 text-muted">
+              {project.highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        {item.highlights && item.highlights.length > 0 && (
+          <ul className="mt-6 list-disc space-y-2 pl-5 text-muted">
+            {item.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </Timeline>
+</section>
 
       {/* Education */}
       <section>
@@ -86,9 +108,25 @@ export default function AboutPage() {
                 {item.details.map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
+                {item.links && item.links.length > 0 && (
+                  <p className="mt-3 text-sm">
+                    {item.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-4"
+                      >
+                        {link.label} ↗
+                      </a>
+                    ))}
+                  </p>
+                )}
               </ul>
             </li>
           ))}
+          
         </Timeline>
       </section>
 
