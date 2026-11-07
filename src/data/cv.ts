@@ -28,7 +28,7 @@ export type SkillGroup = {
 };
 
 export const intro =
-  "I'm an engineer with six years of experience building Unity mobile apps, three of them published on iOS and Android, spanning IoT-connected devices, computer vision, and interactive 3D. I recently completed an MSc in Artificial Intelligence in Ireland, where my thesis studied how AI-generated synthetic videos can augment limited real data for vision-based fall detection, and I published the resulting dataset on GitHub. Now I'm building tool-using AI agents that connect software, devices, and people, and writing about what breaks along the way.";
+  "I'm an engineer with six years of experience building Unity mobile apps, three of them published on iOS and Android, spanning IoT-connected devices, computer vision, and interactive 3D. I have also built and published a full-stack fitness app on my own, from the database and PHP API to the mobile front end. I recently completed an MSc in Artificial Intelligence in Ireland, where my thesis studied how AI-generated synthetic videos can augment limited real data for vision-based fall detection, and I published the resulting dataset on GitHub. Now I'm building tool-using AI agents that connect software, devices, and people, and writing about what breaks along the way.";
 
 export const experience: Experience[] = [
   {
@@ -78,6 +78,22 @@ export const experience: Experience[] = [
       "Handled App Store and Google Play releases end to end for three production apps.",
     ],
   },
+  {
+  role: "Solo Developer",
+  company: "Independent project",
+  period: "[2020 – 2021]",
+  projects: [
+    {
+      name: "Fitness & Nutrition Tracking App",
+      period: "[2020 – 2021]",
+      role: "Founder & Sole Developer",
+      highlights: [
+        "Built the app end to end: designed the MySQL database for user accounts and daily food logs, wrote the PHP API, and developed the Unity (C#) mobile front end.",
+        "Published on Google Play and the App Store; reached about 3,000 registered users with no promotion.",
+      ],
+    },
+  ],
+},
 ];
 
 export const education: Education[] = [
@@ -98,7 +114,7 @@ export const education: Education[] = [
       href: "https://github.com/leowulab/T2V-Bed-Fall-Detection-Dataset",
     },
   ],
-},
+  },
   {
     degree: "Bachelor of Computer Science and Information Engineering",
     school: "Minghsin University of Science and Technology (MUST)",
@@ -143,6 +159,10 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Currently building with",
     items: ["LLM Tool Calling", "WebSocket"],
+  },
+  {
+  title: "Backend & Data",
+  items: ["PHP", "MySQL", "API development"],
   },
 ];
 

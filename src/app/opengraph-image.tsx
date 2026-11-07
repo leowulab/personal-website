@@ -42,8 +42,7 @@ export default function OpengraphImage() {
               lineHeight: 1.15,
             }}
           >
-            I build AI-powered products that connect software, devices, and
-            people.
+            I build apps and AI systems that connect software, devices, and people.
           </div>
           <div
             style={{
@@ -53,7 +52,7 @@ export default function OpengraphImage() {
               color: "#9ca3af",
             }}
           >
-            {site.name} · AI & Full-stack Engineer
+            {site.name} · AI & Mobile Engineer
           </div>
         </div>
       </div>
