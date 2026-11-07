@@ -37,13 +37,19 @@ export default function Home() {
           >
             View Projects
           </Link>
-          <a
+          <Link
+            href="/about"
+            className="rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-80"
+          >
+            About Me
+          </Link>
+          {/* <a
             href="/cv-en.pdf"
             download
             className="rounded-md border border-border px-5 py-2.5 text-sm font-medium transition hover:bg-border/50"
           >
             Download CV
-          </a>
+          </a> */}
         </div>
       </section>
 

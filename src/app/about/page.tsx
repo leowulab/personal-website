@@ -38,7 +38,7 @@ export default function AboutPage() {
       <section>
         <h1 className="text-4xl font-bold tracking-tight">About</h1>
         <p className="mt-6 text-lg leading-relaxed text-muted">{intro}</p>
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <a
             href="/cv-en.pdf"
             download
@@ -46,7 +46,7 @@ export default function AboutPage() {
           >
             Download CV (PDF)
           </a>
-        </div>
+        </div> */}
       </section>
 
       {/* Experience */}

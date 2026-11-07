@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { site } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,12 +17,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: "Your Name | AI & Full-stack Engineer",
-    template: "%s | Your Name",
+    default: site.title,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Portfolio of AI experiments and projects connecting AI, IoT, and frontend.",
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
 };
 
 export default function RootLayout({
